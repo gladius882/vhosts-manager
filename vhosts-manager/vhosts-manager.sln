@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.4
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vhosts-manager", "vhosts-manager.csproj", "{A3F76BE5-3DD8-4C5F-B9B0-C888A3F222A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3F76BE5-3DD8-4C5F-B9B0-C888A3F222A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3F76BE5-3DD8-4C5F-B9B0-C888A3F222A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3F76BE5-3DD8-4C5F-B9B0-C888A3F222A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3F76BE5-3DD8-4C5F-B9B0-C888A3F222A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+EndGlobal

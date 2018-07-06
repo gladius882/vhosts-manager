@@ -1,0 +1,5 @@
+C:\Users\gladius882\Desktop\Git\vhosts-manager\vhosts-manager\bin\Debug\vhosts-manager.exe
+C:\Users\gladius882\Desktop\Git\vhosts-manager\vhosts-manager\bin\Debug\vhosts-manager.pdb
+C:\Users\gladius882\Desktop\Git\vhosts-manager\vhosts-manager\obj\Debug\vhosts-manager.csprojResolveAssemblyReference.cache
+C:\Users\gladius882\Desktop\Git\vhosts-manager\vhosts-manager\obj\Debug\vhosts-manager.exe
+C:\Users\gladius882\Desktop\Git\vhosts-manager\vhosts-manager\obj\Debug\vhosts-manager.pdb
