@@ -10,6 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
+using System.Xml;
+using System.Text.RegularExpressions;
 
 namespace vhosts_manager
 {
@@ -25,9 +28,14 @@ namespace vhosts_manager
 			//
 			InitializeComponent();
 			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+			string hosts = File.ReadAllText(@"C:\Windows\System32\drivers\etc\hosts");
+			string httpdVhosts = File.ReadAllText(@"C:\xampp\apache\conf\extra\httpd-vhosts.conf");
+			
+//			var x = Regex.Matches(httpdVhosts, "<VirtualHost(.*?)</VirtualHost>", RegexOptions.Singleline);
+//			MessageBox.Show(x[2].Value);
+			
+			
+			VirtualHostReader reader = new VirtualHostReader(@"C:\xampp\apache\conf\extra\httpd-vhosts.conf");
 		}
 	}
 }
