@@ -21,6 +21,7 @@ namespace vhosts_manager
 	{
 		private List<string> Lines = new List<string>();
 		private List<string> LinesWithoutComments = new List<string>();
+		private string fileName;
 		
 		public List<VirtualHost> VirtualHosts = new List<VirtualHost>();
 		
@@ -38,6 +39,7 @@ namespace vhosts_manager
 		
 		public VirtualHostReader(string fileName)
 		{
+			this.fileName = fileName;
 			string[] file = File.ReadAllLines(fileName);
 			foreach(string str in file)
 			{
@@ -61,19 +63,30 @@ namespace vhosts_manager
 			VirtualHost vhost = new VirtualHost();
 			
 			vhost.Address = GetIPAddress(text);
-			vhost.Port = 80;
+			vhost.Port = GetPort(text);
 			vhost.ServerName = GetValue(text, "ServerName");
 			vhost.ServerAlias = GetValue(text, "serverAlias");
-			vhost.DocumentRoot = GetValue(text, "DocumentRoot");
+			vhost.DocumentRoot = GetValue(text, "DocumentRoot").Replace("\"", "");
 			vhost.DirectoryIndex = GetValue(text, "DirectoryIndex");
 			
 			this.VirtualHosts.Add(vhost);
 		}
 		
+		public void UpdateVirtualHost(string serverName, VirtualHost vhost)
+		{
+			for(int i=0; i<this.VirtualHosts.Count; i++)
+			{
+				if(this.VirtualHosts[i].ServerName == serverName)
+				{
+					this.VirtualHosts[i] = vhost;
+				}
+			}
+		}
+		
 		private string GetValue(string content, string name)
 		{
 			try {
-				return Regex.Match(content, name+"(.)*", RegexOptions.IgnoreCase).Value.Split(' ')[1].Trim();
+				return Regex.Match(content, name+"(.)*", RegexOptions.IgnoreCase).Value.Split(' ')[1].Trim().Replace("\"", "");
 			}
 			catch {
 				return String.Empty;
@@ -93,6 +106,12 @@ namespace vhosts_manager
 			}
 		}
 		
+		private int GetPort(string content)
+		{
+			// TODO VirtualHostReader.GetPort
+			return 80;
+		}
+		
 		public VirtualHost GetByServerName(string server)
 		{
 			foreach(VirtualHost vhost in this.VirtualHosts)
@@ -101,6 +120,26 @@ namespace vhosts_manager
 					return vhost;
 			}
 			throw new ArgumentOutOfRangeException();
+		}
+		
+		public VirtualHost GetByIPAddress(IPAddress addr)
+		{
+			foreach(VirtualHost vhost in this.VirtualHosts)
+			{
+				if(vhost.Address.ToString() == addr.ToString())
+					return vhost;
+			}
+			throw new ArgumentOutOfRangeException();
+		}
+		
+		public void Save()
+		{
+			string content = "";
+			File.WriteAllText(this.fileName, "NameVirtualHost *:80\n\n");
+			foreach(VirtualHost vhost in this.VirtualHosts)
+			{
+				File.AppendAllText(this.fileName, vhost.RenderEntry() + Environment.NewLine+Environment.NewLine);
+			}
 		}
 
 	}

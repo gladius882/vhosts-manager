@@ -24,19 +24,17 @@ namespace vhosts_manager
 	{
 		private VirtualHostReader reader;
 		private WindowsHosts winHosts;
+		private int selectedIndex = -1;
 		
 		public MainForm()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
 			
-//			string hosts = File.ReadAllText(@"C:\Windows\System32\drivers\etc\hosts");
-//			string httpdVhosts = File.ReadAllText(@"C:\xampp\apache\conf\extra\httpd-vhosts.conf");			
+//			@"C:\Windows\System32\drivers\etc\hosts"
+//			@"C:\xampp\apache\conf\extra\httpd-vhosts.conf"
 			
-			this.reader = new VirtualHostReader(@"C:\xampp\apache\conf\extra\httpd-vhosts.conf");
-			this.winHosts = new WindowsHosts();
+			this.reader = new VirtualHostReader(@"test\httpd-vhosts.conf");
+			this.winHosts = new WindowsHosts(@"test\hosts");
 			
 			foreach(KeyValuePair<string, IPAddress> entry in winHosts.Hosts)
 			{
@@ -49,18 +47,53 @@ namespace vhosts_manager
 			if(this.listView1.SelectedItems.Count != 0)
 			{
 				ListViewItem item = listView1.SelectedItems[0];
-				VirtualHost vhost = this.reader.GetByServerName(item.SubItems[0].Text);
-				AssignFormData(vhost);
+				this.selectedIndex = listView1.SelectedItems[0].Index;
+				AssignFormData(IPAddress.Parse(item.SubItems[1].Text));
 			}
 		}
 		
-		private void AssignFormData(VirtualHost vhost)
+		private void AssignFormData(IPAddress addr)
 		{
-			this.fieldServerName.Text = vhost.ServerName;
+			VirtualHost vhost = this.reader.GetByIPAddress(addr);
+			this.fieldServerNameWindows.Text = vhost.ServerName;
 			this.fieldServerAlias.Text = vhost.ServerAlias;
-			this.fieldIPAddress.Text = vhost.Address.ToString();
+			this.fieldIPAddress.Text = addr.ToString();
+			this.fieldPort.Value = vhost.Port;
 			this.fieldDocumentRoot.Text = vhost.DocumentRoot;
 			this.fieldDirectoryIndex.Text = vhost.DirectoryIndex;
+		}
+		
+		private void Button1Click(object sender, EventArgs e)
+		{
+			this.winHosts.Hosts.Remove(this.listView1.Items[this.selectedIndex].SubItems[0].Text);
+			
+			VirtualHost vhost = new VirtualHost();
+			vhost.ServerName = this.fieldServerNameWindows.Text.Trim();
+			vhost.ServerAlias = this.fieldServerAlias.Text.Trim();
+			
+			try {
+				vhost.Address = IPAddress.Parse(this.fieldIPAddress.Text.Trim());
+			}
+			catch {
+				MessageBox.Show("Invalid format of IP address", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			
+			vhost.DocumentRoot = "\"" + this.fieldDocumentRoot.Text + "\"";
+			vhost.DirectoryIndex = this.fieldDirectoryIndex.Text;
+			
+			this.reader.UpdateVirtualHost(this.listView1.Items[this.selectedIndex].SubItems[0].Text, vhost);
+			this.listView1.Items[this.selectedIndex].SubItems[0].Text = vhost.ServerName;
+			this.listView1.Items[this.selectedIndex].SubItems[1].Text = vhost.Address.ToString();
+			
+			this.winHosts.Hosts.Add(vhost.ServerName, vhost.Address);
+			
+			SaveToFiles();
+		}
+		
+		private void SaveToFiles()
+		{
+			this.winHosts.Save();
+			this.reader.Save();
 		}
 	}
 }

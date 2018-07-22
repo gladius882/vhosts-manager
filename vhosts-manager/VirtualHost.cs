@@ -34,7 +34,20 @@ namespace vhosts_manager
 		
 		public void Parse(string str)
 		{
-			// TODO
+			// TODO VirtualHost.Parse(string)
+		}
+		
+		public string RenderEntry()
+		{
+			string entry = String.Format("<VirtualHost {0}:{1}>"+Environment.NewLine, Address.ToString(), Port.ToString());
+			entry += String.Format("\tServerName {0}"+Environment.NewLine, ServerName);
+			entry += String.Format("\tServerAlias {0}"+Environment.NewLine, ServerAlias);
+			entry += String.Format("\tDocumentRoot {0}"+Environment.NewLine, DocumentRoot);
+			if(DirectoryIndex != String.Empty)
+				entry += String.Format("\tDirectoryindex \"{0}\""+Environment.NewLine, DirectoryIndex);
+			entry += "</VirtualHost>";
+			
+			return entry;
 		}
 	}
 }

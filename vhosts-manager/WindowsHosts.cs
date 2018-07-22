@@ -19,16 +19,18 @@ namespace vhosts_manager
 	public class WindowsHosts
 	{
 		public Dictionary<string, IPAddress> Hosts = new Dictionary<string, IPAddress>();
+		private string fileName;
 		
 		public WindowsHosts(string file = @"C:\Windows\System32\drivers\etc\hosts")
 		{
+			this.fileName = file;
 			foreach(string line in File.ReadAllLines(file))
 			{
-				this.Add(line);
+				this.AddLine(line);
 			}
 		}
 		
-		private void Add(string line)
+		private void AddLine(string line)
 		{
 			if(isValidLine(line))
 			{
@@ -39,6 +41,11 @@ namespace vhosts_manager
 			}
 		}
 		
+		public void Add(string host, IPAddress addr)
+		{
+			this.Hosts.Add(host, addr);
+		}
+		
 		private bool isValidLine(string line)
 		{
 			if(line.Length > 0)
@@ -47,6 +54,25 @@ namespace vhosts_manager
 					return true;
 			}
 			return false;
+		}
+		
+		public void Save()
+		{
+			File.WriteAllText(this.fileName, "");
+			foreach(KeyValuePair<string, IPAddress> entry in this.Hosts)
+			{
+				File.AppendAllText(this.fileName, entry.Value.ToString().Trim() + " " + entry.Key.Trim() + Environment.NewLine);
+			}
+		}
+		
+		public string GetServerName(IPAddress addr)
+		{
+			foreach(KeyValuePair<string, IPAddress> entry in this.Hosts)
+			{
+				if(entry.Value.ToString() == addr.ToString())
+					return entry.Key;
+			}
+			throw new ArgumentOutOfRangeException();
 		}
 	}
 	
