@@ -36,6 +36,8 @@ namespace vhosts_manager
 			
 			
 			VirtualHostReader reader = new VirtualHostReader(@"C:\xampp\apache\conf\extra\httpd-vhosts.conf");
+			MessageBox.Show(reader.GetByServerName("nti-prestashop.pl").ServerAlias);
+			
 		}
 	}
 }

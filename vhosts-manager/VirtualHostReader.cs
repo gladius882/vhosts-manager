@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Net;
 
 namespace vhosts_manager
 {
@@ -59,6 +60,8 @@ namespace vhosts_manager
 		{
 			VirtualHost vhost = new VirtualHost();
 			
+			vhost.Address = GetIPAddress(text);
+			vhost.Port = 80;
 			vhost.ServerName = GetValue(text, "ServerName");
 			vhost.ServerAlias = GetValue(text, "serverAlias");
 			vhost.DocumentRoot = GetValue(text, "DocumentRoot");
@@ -75,6 +78,29 @@ namespace vhosts_manager
 			catch {
 				return String.Empty;
 			}
+		}
+		
+		private IPAddress GetIPAddress(string content)
+		{
+			try {
+				string reg = Regex.Match(content, "<VirtualHost (.)*>", RegexOptions.IgnoreCase).Value.ToLower();
+				reg = reg.Replace("<virtualhost ", "").Replace(">", "");
+				reg = reg.Remove(reg.IndexOf(':'));
+				return IPAddress.Parse(reg);
+			}
+			catch {
+				return IPAddress.Parse("0.0.0.0");
+			}
+		}
+		
+		public VirtualHost GetByServerName(string server)
+		{
+			foreach(VirtualHost vhost in this.VirtualHosts)
+			{
+				if(vhost.ServerName == server)
+					return vhost;
+			}
+			throw new ArgumentOutOfRangeException();
 		}
 
 	}

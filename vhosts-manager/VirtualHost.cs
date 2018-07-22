@@ -23,10 +23,10 @@ namespace vhosts_manager
 		public string ServerAlias;
 		public string DocumentRoot;
 		public string DirectoryIndex;
-		public string AllowOverride;
+//		public string AllowOverride;
 		
-		public bool AllowFromAll;
-		public bool OrderAllowDeny;
+//		public bool AllowFromAll;
+//		public bool OrderAllowDeny;
 		
 		public VirtualHost()
 		{
@@ -34,7 +34,7 @@ namespace vhosts_manager
 		
 		public void Parse(string str)
 		{
-			
+			// TODO
 		}
 	}
 }
