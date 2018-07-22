@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml;
+using System.Net;
 using System.Text.RegularExpressions;
 
 namespace vhosts_manager
@@ -21,6 +22,9 @@ namespace vhosts_manager
 	/// </summary>
 	public partial class MainForm : Form
 	{
+		private VirtualHostReader reader;
+		private WindowsHosts winHosts;
+		
 		public MainForm()
 		{
 			//
@@ -28,16 +32,35 @@ namespace vhosts_manager
 			//
 			InitializeComponent();
 			
-			string hosts = File.ReadAllText(@"C:\Windows\System32\drivers\etc\hosts");
-			string httpdVhosts = File.ReadAllText(@"C:\xampp\apache\conf\extra\httpd-vhosts.conf");
+//			string hosts = File.ReadAllText(@"C:\Windows\System32\drivers\etc\hosts");
+//			string httpdVhosts = File.ReadAllText(@"C:\xampp\apache\conf\extra\httpd-vhosts.conf");			
 			
-//			var x = Regex.Matches(httpdVhosts, "<VirtualHost(.*?)</VirtualHost>", RegexOptions.Singleline);
-//			MessageBox.Show(x[2].Value);
+			this.reader = new VirtualHostReader(@"C:\xampp\apache\conf\extra\httpd-vhosts.conf");
+			this.winHosts = new WindowsHosts();
 			
-			
-			VirtualHostReader reader = new VirtualHostReader(@"C:\xampp\apache\conf\extra\httpd-vhosts.conf");
-			MessageBox.Show(reader.GetByServerName("nti-prestashop.pl").ServerAlias);
-			
+			foreach(KeyValuePair<string, IPAddress> entry in winHosts.Hosts)
+			{
+				this.listView1.Items.Add(new ListViewItem(new string[] {entry.Key, entry.Value.ToString()}));
+			}
+		}
+		
+		private void ListView1Click(object sender, EventArgs e)
+		{
+			if(this.listView1.SelectedItems.Count != 0)
+			{
+				ListViewItem item = listView1.SelectedItems[0];
+				VirtualHost vhost = this.reader.GetByServerName(item.SubItems[0].Text);
+				AssignFormData(vhost);
+			}
+		}
+		
+		private void AssignFormData(VirtualHost vhost)
+		{
+			this.fieldServerName.Text = vhost.ServerName;
+			this.fieldServerAlias.Text = vhost.ServerAlias;
+			this.fieldIPAddress.Text = vhost.Address.ToString();
+			this.fieldDocumentRoot.Text = vhost.DocumentRoot;
+			this.fieldDirectoryIndex.Text = vhost.DirectoryIndex;
 		}
 	}
 }
