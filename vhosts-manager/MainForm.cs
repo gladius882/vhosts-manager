@@ -95,5 +95,22 @@ namespace vhosts_manager
 			this.winHosts.Save();
 			this.reader.Save();
 		}
+		
+		void FormAddClick(object sender, EventArgs e)
+		{
+			VirtualHost vhost = new VirtualHost();
+			vhost.Address = IPAddress.Parse(fieldIPAddress.Text);
+			vhost.Port = (int)fieldPort.Value;
+			vhost.ServerName = fieldServerNameWindows.Text;
+			vhost.ServerAlias = fieldServerAlias.Text;
+			vhost.DocumentRoot = fieldDocumentRoot.Text;
+			vhost.DirectoryIndex = fieldDirectoryIndex.Text;
+			reader.AddVirtualHost(vhost);
+			
+			winHosts.Hosts.Add(vhost.ServerName, vhost.Address);
+			listView1.Items.Add(new ListViewItem(new string[] {vhost.ServerName, vhost.Address.ToString()}));
+			
+			SaveToFiles();
+		}
 	}
 }

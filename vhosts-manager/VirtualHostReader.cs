@@ -72,6 +72,11 @@ namespace vhosts_manager
 			this.VirtualHosts.Add(vhost);
 		}
 		
+		public void AddVirtualHost(VirtualHost vhost)
+		{
+			this.VirtualHosts.Add(vhost);
+		}
+		
 		public void UpdateVirtualHost(string serverName, VirtualHost vhost)
 		{
 			for(int i=0; i<this.VirtualHosts.Count; i++)

@@ -38,13 +38,19 @@ namespace vhosts_manager
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.commandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.apacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.listView1 = new System.Windows.Forms.ListView();
 			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
 			this.formSave = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.formNew = new System.Windows.Forms.Button();
+			this.formAdd = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.fieldServerNameWindows = new System.Windows.Forms.TextBox();
@@ -58,12 +64,6 @@ namespace vhosts_manager
 			this.fieldDocumentRoot = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.fieldDirectoryIndex = new System.Windows.Forms.TextBox();
-			this.commandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.apacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -81,6 +81,49 @@ namespace vhosts_manager
 			this.menuStrip1.Size = new System.Drawing.Size(786, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// commandsToolStripMenuItem
+			// 
+			this.commandsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.apacheToolStripMenuItem});
+			this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
+			this.commandsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+			this.commandsToolStripMenuItem.Text = "Commands";
+			// 
+			// apacheToolStripMenuItem
+			// 
+			this.apacheToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.runToolStripMenuItem,
+									this.stopToolStripMenuItem,
+									this.restartToolStripMenuItem});
+			this.apacheToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("apacheToolStripMenuItem.Image")));
+			this.apacheToolStripMenuItem.Name = "apacheToolStripMenuItem";
+			this.apacheToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+			this.apacheToolStripMenuItem.Text = "Apache";
+			// 
+			// runToolStripMenuItem
+			// 
+			this.runToolStripMenuItem.Name = "runToolStripMenuItem";
+			this.runToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+			this.runToolStripMenuItem.Text = "Run";
+			// 
+			// stopToolStripMenuItem
+			// 
+			this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
+			this.stopToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+			this.stopToolStripMenuItem.Text = "Stop";
+			// 
+			// restartToolStripMenuItem
+			// 
+			this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
+			this.restartToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+			this.restartToolStripMenuItem.Text = "Restart";
+			// 
+			// settingsToolStripMenuItem
+			// 
+			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+			this.settingsToolStripMenuItem.Text = "Settings";
 			// 
 			// panel1
 			// 
@@ -125,6 +168,7 @@ namespace vhosts_manager
 			// 
 			// formSave
 			// 
+			this.formSave.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.formSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			this.formSave.Location = new System.Drawing.Point(6, 339);
 			this.formSave.Name = "formSave";
@@ -136,7 +180,7 @@ namespace vhosts_manager
 			// 
 			// panel2
 			// 
-			this.panel2.Controls.Add(this.formNew);
+			this.panel2.Controls.Add(this.formAdd);
 			this.panel2.Controls.Add(this.tableLayoutPanel1);
 			this.panel2.Controls.Add(this.formSave);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -145,14 +189,15 @@ namespace vhosts_manager
 			this.panel2.Size = new System.Drawing.Size(531, 384);
 			this.panel2.TabIndex = 2;
 			// 
-			// formNew
+			// formAdd
 			// 
-			this.formNew.Location = new System.Drawing.Point(122, 339);
-			this.formNew.Name = "formNew";
-			this.formNew.Size = new System.Drawing.Size(110, 33);
-			this.formNew.TabIndex = 8;
-			this.formNew.Text = "New";
-			this.formNew.UseVisualStyleBackColor = true;
+			this.formAdd.Location = new System.Drawing.Point(122, 339);
+			this.formAdd.Name = "formAdd";
+			this.formAdd.Size = new System.Drawing.Size(110, 33);
+			this.formAdd.TabIndex = 8;
+			this.formAdd.Text = "Add";
+			this.formAdd.UseVisualStyleBackColor = true;
+			this.formAdd.Click += new System.EventHandler(this.FormAddClick);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -315,49 +360,6 @@ namespace vhosts_manager
 			this.fieldDirectoryIndex.Size = new System.Drawing.Size(306, 24);
 			this.fieldDirectoryIndex.TabIndex = 6;
 			// 
-			// commandsToolStripMenuItem
-			// 
-			this.commandsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.apacheToolStripMenuItem});
-			this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
-			this.commandsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-			this.commandsToolStripMenuItem.Text = "Commands";
-			// 
-			// settingsToolStripMenuItem
-			// 
-			this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-			this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-			this.settingsToolStripMenuItem.Text = "Settings";
-			// 
-			// apacheToolStripMenuItem
-			// 
-			this.apacheToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.runToolStripMenuItem,
-									this.stopToolStripMenuItem,
-									this.restartToolStripMenuItem});
-			this.apacheToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("apacheToolStripMenuItem.Image")));
-			this.apacheToolStripMenuItem.Name = "apacheToolStripMenuItem";
-			this.apacheToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.apacheToolStripMenuItem.Text = "Apache";
-			// 
-			// runToolStripMenuItem
-			// 
-			this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-			this.runToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.runToolStripMenuItem.Text = "Run";
-			// 
-			// stopToolStripMenuItem
-			// 
-			this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-			this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.stopToolStripMenuItem.Text = "Stop";
-			// 
-			// restartToolStripMenuItem
-			// 
-			this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-			this.restartToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.restartToolStripMenuItem.Text = "Restart";
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,6 +383,7 @@ namespace vhosts_manager
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.TextBox fieldServerNameWindows;
 		private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem runToolStripMenuItem;
@@ -389,7 +392,7 @@ namespace vhosts_manager
 		private System.Windows.Forms.ToolStripMenuItem commandsToolStripMenuItem;
 		private System.Windows.Forms.NumericUpDown fieldPort;
 		private System.Windows.Forms.Label label7;
-		private System.Windows.Forms.Button formNew;
+		private System.Windows.Forms.Button formAdd;
 		private System.Windows.Forms.Button formSave;
 		private System.Windows.Forms.TextBox fieldServerAlias;
 		private System.Windows.Forms.Label label3;
@@ -399,7 +402,6 @@ namespace vhosts_manager
 		private System.Windows.Forms.TextBox fieldDocumentRoot;
 		private System.Windows.Forms.TextBox fieldDirectoryIndex;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox fieldServerNameWindows;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Panel panel2;
