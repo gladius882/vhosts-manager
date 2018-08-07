@@ -33,8 +33,8 @@ namespace vhosts_manager
 //			@"C:\Windows\System32\drivers\etc\hosts"
 //			@"C:\xampp\apache\conf\extra\httpd-vhosts.conf"
 			
-			this.reader = new VirtualHostReader(@"test\httpd-vhosts.conf");
-			this.winHosts = new WindowsHosts(@"test\hosts");
+			this.reader = new VirtualHostReader(@"C:\xampp\apache\conf\extra\httpd-vhosts.conf");
+			this.winHosts = new WindowsHosts(@"C:\Windows\System32\drivers\etc\hosts");
 			
 			foreach(KeyValuePair<string, IPAddress> entry in winHosts.Hosts)
 			{

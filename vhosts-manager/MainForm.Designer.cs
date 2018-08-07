@@ -224,7 +224,7 @@ namespace vhosts_manager
 			this.tableLayoutPanel1.RowCount = 6;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.57534F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.42466F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
@@ -240,9 +240,9 @@ namespace vhosts_manager
 			this.label1.ForeColor = System.Drawing.Color.DeepPink;
 			this.label1.Location = new System.Drawing.Point(4, 1);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(210, 32);
+			this.label1.Size = new System.Drawing.Size(210, 31);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "ServerName (Windows)";
+			this.label1.Text = "ServerName";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// fieldServerNameWindows
@@ -259,9 +259,9 @@ namespace vhosts_manager
 			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label2.ForeColor = System.Drawing.Color.DeepPink;
-			this.label2.Location = new System.Drawing.Point(4, 34);
+			this.label2.Location = new System.Drawing.Point(4, 33);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(210, 36);
+			this.label2.Size = new System.Drawing.Size(210, 35);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "ServerAlias";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -270,7 +270,7 @@ namespace vhosts_manager
 			// 
 			this.fieldServerAlias.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.fieldServerAlias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.fieldServerAlias.Location = new System.Drawing.Point(221, 37);
+			this.fieldServerAlias.Location = new System.Drawing.Point(221, 36);
 			this.fieldServerAlias.Name = "fieldServerAlias";
 			this.fieldServerAlias.Size = new System.Drawing.Size(306, 24);
 			this.fieldServerAlias.TabIndex = 2;
@@ -280,9 +280,9 @@ namespace vhosts_manager
 			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.label3.ForeColor = System.Drawing.Color.DeepPink;
-			this.label3.Location = new System.Drawing.Point(4, 71);
+			this.label3.Location = new System.Drawing.Point(4, 69);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(210, 33);
+			this.label3.Size = new System.Drawing.Size(210, 35);
 			this.label3.TabIndex = 4;
 			this.label3.Text = "IP Address";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -291,7 +291,7 @@ namespace vhosts_manager
 			// 
 			this.fieldIPAddress.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.fieldIPAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.fieldIPAddress.Location = new System.Drawing.Point(221, 74);
+			this.fieldIPAddress.Location = new System.Drawing.Point(221, 72);
 			this.fieldIPAddress.MaxLength = 15;
 			this.fieldIPAddress.Name = "fieldIPAddress";
 			this.fieldIPAddress.Size = new System.Drawing.Size(306, 24);

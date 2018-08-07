@@ -1,0 +1,6 @@
+﻿<settings>
+	<path>
+		<hosts>C:\Windows\System32\drivers\etc\hosts</hosts>
+		<httpd-vhosts>C:\xampp\apache\conf\extra\httpd-vhosts.conf</httpd-vhosts>
+	</path>
+</settings>
