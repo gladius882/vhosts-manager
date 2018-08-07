@@ -51,6 +51,7 @@ namespace vhosts_manager
 			this.formSave = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.formAdd = new System.Windows.Forms.Button();
+			this.panel3 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.fieldServerNameWindows = new System.Windows.Forms.TextBox();
@@ -67,6 +68,7 @@ namespace vhosts_manager
 			this.menuStrip1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
+			this.panel3.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.fieldPort)).BeginInit();
 			this.SuspendLayout();
@@ -98,7 +100,7 @@ namespace vhosts_manager
 									this.restartToolStripMenuItem});
 			this.apacheToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("apacheToolStripMenuItem.Image")));
 			this.apacheToolStripMenuItem.Name = "apacheToolStripMenuItem";
-			this.apacheToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+			this.apacheToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.apacheToolStripMenuItem.Text = "Apache";
 			// 
 			// runToolStripMenuItem
@@ -180,8 +182,8 @@ namespace vhosts_manager
 			// 
 			// panel2
 			// 
+			this.panel2.Controls.Add(this.panel3);
 			this.panel2.Controls.Add(this.formAdd);
-			this.panel2.Controls.Add(this.tableLayoutPanel1);
 			this.panel2.Controls.Add(this.formSave);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(255, 24);
@@ -199,12 +201,22 @@ namespace vhosts_manager
 			this.formAdd.UseVisualStyleBackColor = true;
 			this.formAdd.Click += new System.EventHandler(this.FormAddClick);
 			// 
+			// panel3
+			// 
+			this.panel3.AutoScroll = true;
+			this.panel3.Controls.Add(this.tableLayoutPanel1);
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel3.Location = new System.Drawing.Point(0, 0);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(531, 384);
+			this.panel3.TabIndex = 9;
+			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
 			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.9434F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.0566F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.42857F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.57143F));
 			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.fieldServerNameWindows, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -221,26 +233,27 @@ namespace vhosts_manager
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10, 0, 30, 0);
 			this.tableLayoutPanel1.RowCount = 6;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.57534F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.42466F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.70422F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.29578F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(531, 211);
-			this.tableLayoutPanel1.TabIndex = 0;
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(531, 217);
+			this.tableLayoutPanel1.TabIndex = 10;
 			// 
 			// label1
 			// 
 			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label1.ForeColor = System.Drawing.Color.DeepPink;
-			this.label1.Location = new System.Drawing.Point(4, 1);
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label1.ForeColor = System.Drawing.Color.RosyBrown;
+			this.label1.Location = new System.Drawing.Point(14, 1);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(210, 31);
+			this.label1.Size = new System.Drawing.Size(196, 35);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "ServerName";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -249,19 +262,19 @@ namespace vhosts_manager
 			// 
 			this.fieldServerNameWindows.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.fieldServerNameWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.fieldServerNameWindows.Location = new System.Drawing.Point(221, 4);
+			this.fieldServerNameWindows.Location = new System.Drawing.Point(217, 4);
 			this.fieldServerNameWindows.Name = "fieldServerNameWindows";
-			this.fieldServerNameWindows.Size = new System.Drawing.Size(306, 24);
+			this.fieldServerNameWindows.Size = new System.Drawing.Size(280, 24);
 			this.fieldServerNameWindows.TabIndex = 1;
 			// 
 			// label2
 			// 
 			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label2.ForeColor = System.Drawing.Color.DeepPink;
-			this.label2.Location = new System.Drawing.Point(4, 33);
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label2.ForeColor = System.Drawing.Color.RosyBrown;
+			this.label2.Location = new System.Drawing.Point(14, 37);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(210, 35);
+			this.label2.Size = new System.Drawing.Size(196, 34);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "ServerAlias";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -270,19 +283,19 @@ namespace vhosts_manager
 			// 
 			this.fieldServerAlias.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.fieldServerAlias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.fieldServerAlias.Location = new System.Drawing.Point(221, 36);
+			this.fieldServerAlias.Location = new System.Drawing.Point(217, 40);
 			this.fieldServerAlias.Name = "fieldServerAlias";
-			this.fieldServerAlias.Size = new System.Drawing.Size(306, 24);
+			this.fieldServerAlias.Size = new System.Drawing.Size(280, 24);
 			this.fieldServerAlias.TabIndex = 2;
 			// 
 			// label3
 			// 
 			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label3.ForeColor = System.Drawing.Color.DeepPink;
-			this.label3.Location = new System.Drawing.Point(4, 69);
+			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label3.ForeColor = System.Drawing.Color.RosyBrown;
+			this.label3.Location = new System.Drawing.Point(14, 72);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(210, 35);
+			this.label3.Size = new System.Drawing.Size(196, 34);
 			this.label3.TabIndex = 4;
 			this.label3.Text = "IP Address";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -291,20 +304,20 @@ namespace vhosts_manager
 			// 
 			this.fieldIPAddress.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.fieldIPAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.fieldIPAddress.Location = new System.Drawing.Point(221, 72);
+			this.fieldIPAddress.Location = new System.Drawing.Point(217, 75);
 			this.fieldIPAddress.MaxLength = 15;
 			this.fieldIPAddress.Name = "fieldIPAddress";
-			this.fieldIPAddress.Size = new System.Drawing.Size(306, 24);
+			this.fieldIPAddress.Size = new System.Drawing.Size(280, 24);
 			this.fieldIPAddress.TabIndex = 3;
 			// 
 			// label7
 			// 
 			this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label7.ForeColor = System.Drawing.Color.DeepPink;
-			this.label7.Location = new System.Drawing.Point(4, 105);
+			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label7.ForeColor = System.Drawing.Color.RosyBrown;
+			this.label7.Location = new System.Drawing.Point(14, 107);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(210, 34);
+			this.label7.Size = new System.Drawing.Size(196, 35);
 			this.label7.TabIndex = 13;
 			this.label7.Text = "Port";
 			this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -313,19 +326,19 @@ namespace vhosts_manager
 			// 
 			this.fieldPort.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.fieldPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.fieldPort.Location = new System.Drawing.Point(221, 108);
+			this.fieldPort.Location = new System.Drawing.Point(217, 110);
 			this.fieldPort.Name = "fieldPort";
-			this.fieldPort.Size = new System.Drawing.Size(306, 24);
+			this.fieldPort.Size = new System.Drawing.Size(280, 24);
 			this.fieldPort.TabIndex = 4;
 			// 
 			// label4
 			// 
 			this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label4.ForeColor = System.Drawing.Color.DeepPink;
-			this.label4.Location = new System.Drawing.Point(4, 140);
+			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label4.ForeColor = System.Drawing.Color.RosyBrown;
+			this.label4.Location = new System.Drawing.Point(14, 143);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(210, 35);
+			this.label4.Size = new System.Drawing.Size(196, 36);
 			this.label4.TabIndex = 6;
 			this.label4.Text = "DocumentRoot";
 			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -334,19 +347,19 @@ namespace vhosts_manager
 			// 
 			this.fieldDocumentRoot.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.fieldDocumentRoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.fieldDocumentRoot.Location = new System.Drawing.Point(221, 143);
+			this.fieldDocumentRoot.Location = new System.Drawing.Point(217, 146);
 			this.fieldDocumentRoot.Name = "fieldDocumentRoot";
-			this.fieldDocumentRoot.Size = new System.Drawing.Size(306, 24);
+			this.fieldDocumentRoot.Size = new System.Drawing.Size(280, 24);
 			this.fieldDocumentRoot.TabIndex = 5;
 			// 
 			// label6
 			// 
 			this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.label6.ForeColor = System.Drawing.Color.DeepPink;
-			this.label6.Location = new System.Drawing.Point(4, 176);
+			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.label6.ForeColor = System.Drawing.Color.RosyBrown;
+			this.label6.Location = new System.Drawing.Point(14, 180);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(210, 34);
+			this.label6.Size = new System.Drawing.Size(196, 36);
 			this.label6.TabIndex = 8;
 			this.label6.Text = "DirectoryIndex";
 			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -355,9 +368,9 @@ namespace vhosts_manager
 			// 
 			this.fieldDirectoryIndex.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.fieldDirectoryIndex.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-			this.fieldDirectoryIndex.Location = new System.Drawing.Point(221, 179);
+			this.fieldDirectoryIndex.Location = new System.Drawing.Point(217, 183);
 			this.fieldDirectoryIndex.Name = "fieldDirectoryIndex";
-			this.fieldDirectoryIndex.Size = new System.Drawing.Size(306, 24);
+			this.fieldDirectoryIndex.Size = new System.Drawing.Size(280, 24);
 			this.fieldDirectoryIndex.TabIndex = 6;
 			// 
 			// MainForm
@@ -377,12 +390,14 @@ namespace vhosts_manager
 			this.menuStrip1.PerformLayout();
 			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
+			this.panel3.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.fieldPort)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Panel panel3;
 		private System.Windows.Forms.TextBox fieldServerNameWindows;
 		private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
